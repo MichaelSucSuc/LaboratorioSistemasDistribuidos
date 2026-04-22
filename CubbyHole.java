@@ -1,4 +1,5 @@
 public class CubbyHole {
+    public static final int INTERRUPTED = -1;
     private int contents;
     private boolean available = false;
 
@@ -8,7 +9,7 @@ public class CubbyHole {
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                return contents;
+                return INTERRUPTED;
             }
         }
         available = false;
