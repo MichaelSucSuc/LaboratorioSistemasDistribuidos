@@ -1,5 +1,4 @@
 public class CubbyHole {
-    public static final int INTERRUPTED = -1;
     private int contents;
     private boolean available = false;
 
@@ -9,7 +8,7 @@ public class CubbyHole {
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                return INTERRUPTED;
+                throw new IllegalStateException("Interrumpido esperando dato en get()", e);
             }
         }
         available = false;
@@ -23,7 +22,7 @@ public class CubbyHole {
                 wait();
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
-                return;
+                throw new IllegalStateException("Interrumpido esperando espacio en put()", e);
             }
         }
         contents = value;

@@ -8,12 +8,9 @@ public class Consumidor extends Thread {
     }
 
     public void run() {
-        int value = 0;
+        int value;
         for (int i = 0; i < 10; i++) {
             value = cubbyhole.get();
-            if (value == CubbyHole.INTERRUPTED) {
-                return;
-            }
             System.out.println("Consumidor #" + this.numero + " obtiene: " + value);
         }
     }
