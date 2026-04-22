@@ -9,7 +9,11 @@ public class Productor extends Thread {
 
     public void run() {
         for (int i = 0; i < 10; i++) {
-            cubbyhole.put(i);
+            try {
+                cubbyhole.put(i);
+            } catch (IllegalStateException e) {
+                return;
+            }
             System.out.println("Productor #" + this.numero + " pone: " + i);
             try {
                 sleep((int) (Math.random() * 100));
