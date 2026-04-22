@@ -3,10 +3,12 @@ public class CubbyHole {
     private boolean available = false;
 
     public synchronized int get() {
-        while (available == false) {
+        while (!available) {
             try {
                 wait();
             } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return contents;
             }
         }
         available = false;
@@ -15,10 +17,12 @@ public class CubbyHole {
     }
 
     public synchronized void put(int value) {
-        while (available == true) {
+        while (available) {
             try {
                 wait();
             } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
             }
         }
         contents = value;
