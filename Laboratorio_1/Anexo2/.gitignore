@@ -1,0 +1,19 @@
+# .gitignore para el proyecto
+# Se ha configurado para NO ignorar archivos .class (se incluyen en el repositorio)
+
+# Carpetas de build comunes
+/bin/
+/build/
+/out/
+/target/
+
+# Artefactos empaquetados
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# No ignorar archivos compilados .class
+*.class
