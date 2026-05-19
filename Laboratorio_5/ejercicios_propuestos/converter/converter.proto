@@ -1,0 +1,16 @@
+syntax = "proto3";
+package converter;
+
+service Converter {
+  rpc Convert (ConvertRequest) returns (ConvertResponse);
+}
+
+message ConvertRequest {
+  string kind = 1; // C_TO_F | SOLES_TO_DOLLARS | KM_TO_MI
+  double value = 2;
+}
+
+message ConvertResponse {
+  double result = 1;
+  string message = 2;
+}
