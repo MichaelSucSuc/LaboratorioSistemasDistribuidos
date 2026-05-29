@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f2f4f8;
+    color: #222;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.cabecera {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cabecera h1 {
+    margin-bottom: 8px;
+    color: #1d3557;
+}
+
+.cabecera p {
+    color: #555;
+}
+
+.tarjeta {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta h2 {
+    margin-top: 0;
+    color: #1d3557;
+}
+
+.grupo {
+    margin-bottom: 15px;
+}
+
+.grupo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.grupo input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd3dd;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.acciones {
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    background: #1d3557;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button.secundario {
+    background: #6c757d;
+}
+
+button.editar {
+    background: #2a9d8f;
+}
+
+button.eliminar {
+    background: #e63946;
+}
+
+#mensaje {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.encabezado-tabla {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+thead {
+    background: #1d3557;
+    color: white;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+td button {
+    margin-right: 6px;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 13px;
+    }
+
+    .encabezado-tabla {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

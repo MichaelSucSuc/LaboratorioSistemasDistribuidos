@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>API RESTful Estudiantes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <main class="contenedor">
+        <section class="cabecera">
+            <h1>Gestión de Estudiantes</h1>
+            <p>Cliente web que consume una API RESTful desarrollada con Flask y SQLite.</p>
+        </section>
+
+        <section class="tarjeta">
+            <h2 id="tituloFormulario">Registrar estudiante</h2>
+
+            <input type="hidden" id="idEstudiante">
+
+            <div class="grupo">
+                <label>Nombre</label>
+                <input type="text" id="nombre" placeholder="Ingrese el nombre">
+            </div>
+
+            <div class="grupo">
+                <label>Correo</label>
+                <input type="email" id="correo" placeholder="Ingrese el correo">
+            </div>
+
+            <div class="grupo">
+                <label>Carrera</label>
+                <input type="text" id="carrera" placeholder="Ingrese la carrera">
+            </div>
+
+            <div class="grupo">
+                <label>Semestre</label>
+                <input type="number" id="semestre" placeholder="Ingrese el semestre">
+            </div>
+
+            <div class="acciones">
+                <button onclick="guardarEstudiante()" id="btnGuardar">Registrar</button>
+                <button onclick="limpiarFormulario()" class="secundario">Limpiar</button>
+            </div>
+
+            <p id="mensaje"></p>
+        </section>
+
+        <section class="tarjeta">
+            <div class="encabezado-tabla">
+                <h2>Lista de estudiantes</h2>
+                <button onclick="listarEstudiantes()" class="secundario">Actualizar lista</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Carrera</th>
+                        <th>Semestre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tablaEstudiantes">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
