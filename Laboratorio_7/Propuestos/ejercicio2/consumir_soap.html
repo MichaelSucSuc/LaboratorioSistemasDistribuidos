@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Calculadora SOAP (demo)</title>
+    <style>
+      :root{font-family:Inter,system-ui,Segoe UI,Roboto,Arial;--bg:#f6f8fa;--card:#ffffff;--accent:#0b5cff}
+      body{margin:0;background:var(--bg);display:flex;align-items:center;justify-content:center;height:100vh}
+      .card{background:var(--card);padding:20px;border-radius:10px;box-shadow:0 6px 18px rgba(10,10,10,0.08);width:min(520px,96%)}
+      h1{margin:0 0 12px;font-size:18px}
+      .row{display:flex;gap:8px;align-items:center;margin-bottom:10px}
+      input[type=number]{flex:1;padding:8px;border:1px solid #e3e6ea;border-radius:6px}
+      select{padding:8px;border-radius:6px;border:1px solid #e3e6ea}
+      button{background:var(--accent);color:#fff;border:none;padding:10px 14px;border-radius:8px;cursor:pointer}
+      #out{background:#f3f6ff;border:1px dashed #d9e3ff;padding:12px;border-radius:6px;min-height:36px}
+      .meta{font-size:13px;color:#556}
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <h1>Calculadora SOAP (demo via proxy)</h1>
+      <div class="row">
+        <input id="a" type="number" value="5" aria-label="valor a">
+        <select id="op" aria-label="operacion">
+          <option value="Add">+</option>
+          <option value="Subtract">−</option>
+          <option value="Multiply">×</option>
+          <option value="Divide">÷</option>
+        </select>
+        <input id="b" type="number" value="8" aria-label="valor b">
+        <button id="btn">Calcular</button>
+      </div>
+      <div class="row">
+        <div id="out">Resultado aparecerá aquí</div>
+      </div>
+      <div class="meta">Proxy: <code>http://127.0.0.1:5000/proxy</code></div>
+    </main>
+
+    <script>
+      const btn = document.getElementById('btn');
+      const out = document.getElementById('out');
+      async function calcular(){
+        const a = Number(document.getElementById('a').value);
+        const b = Number(document.getElementById('b').value);
+        const action = document.getElementById('op').value;
+        out.textContent = 'Consultando...';
+        try{
+          const res = await fetch('http://127.0.0.1:5000/proxy',{
+            method:'POST',headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({action, a, b})
+          });
+          const json = await res.json();
+          if(res.ok && json.result !== undefined){
+            out.textContent = json.result;
+          } else {
+            out.textContent = 'Error: ' + (json.error || JSON.stringify(json));
+          }
+        }catch(e){
+          out.textContent = 'Error: ' + e;
+        }
+      }
+      btn.addEventListener('click', calcular);
+      // allow Enter to trigger
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Enter') calcular(); })
+    </script>
+  </body>
+</html>

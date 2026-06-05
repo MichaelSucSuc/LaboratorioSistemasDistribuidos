@@ -1,0 +1,6 @@
+from zeep import Client
+client = Client(
+'http://www.dneonline.com/calculator.asmx?WSDL'
+)
+resultado = client.service.Add(5,8)
+print(resultado)
