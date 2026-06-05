@@ -1,0 +1,9 @@
+com\laboratorio\soap\venta\PublicadorVentas.class
+com\laboratorio\soap\venta\Producto.class
+com\laboratorio\soap\conversor\ConversorSOAP.class
+com\laboratorio\soap\conversor\ConversorSOAPImpl.class
+com\laboratorio\soap\conversor\PublicadorConversor.class
+com\laboratorio\soap\venta\ClienteVentas.class
+com\laboratorio\soap\venta\VentaSOAP.class
+com\laboratorio\soap\venta\VentaSOAPImpl.class
+com\laboratorio\soap\conversor\ClienteConversor.class
