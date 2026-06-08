@@ -8,6 +8,8 @@ services:
       POSTGRES_DB: almacen_arequipa
     ports:
       - "5432:5432"
+    volumes:
+      - ./data/arequipa:/var/lib/postgresql/data
     networks:
       - red_distribuida
 
@@ -20,6 +22,8 @@ services:
       POSTGRES_DB: almacen_lima
     ports:
       - "5433:5432"
+    volumes:
+      - ./data/lima:/var/lib/postgresql/data
     networks:
       - red_distribuida
 
