@@ -1,0 +1,28 @@
+services:
+  nodo_arequipa:
+    image: postgres:16
+    container_name: arequipa_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: almacen_arequipa
+    ports:
+      - "5432:5432"
+    networks:
+      - red_distribuida
+
+  nodo_lima:
+    image: postgres:16
+    container_name: lima_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_DB: almacen_lima
+    ports:
+      - "5433:5432"
+    networks:
+      - red_distribuida
+
+networks:
+  red_distribuida:
+    driver: bridge
