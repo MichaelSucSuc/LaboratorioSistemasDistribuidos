@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LogiFresh - Sistema Distribuido</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div>
+      <p class="tag">Laboratorio 9 · Sistemas Distribuidos</p>
+      <h1>LogiFresh S.A.</h1>
+      <p class="subtitle">
+        Plataforma distribuida para pedidos, inventario, facturación, transporte y notificaciones.
+      </p>
+    </div>
+    <button id="btnHealth" class="btn secondary">Verificar servicios</button>
+  </header>
+
+  <main class="layout">
+    <section class="card">
+      <div class="card-header">
+        <h2>Registrar pedido</h2>
+        <span class="badge">Pedidos ↔ Inventario ↔ Facturación</span>
+      </div>
+
+      <form id="orderForm" class="form">
+        <label>
+          Producto
+          <select id="productId" required>
+            <option value="P001">P001 - Yogurt refrigerado</option>
+            <option value="P002">P002 - Queso fresco</option>
+            <option value="P003">P003 - Leche pasteurizada</option>
+          </select>
+        </label>
+
+        <label>
+          Cantidad
+          <input id="quantity" type="number" min="1" value="2" required />
+        </label>
+
+        <label>
+          Correo del cliente
+          <input id="customerEmail" type="email" value="cliente@demo.com" required />
+        </label>
+
+        <label>
+          Promoción
+          <select id="promoCode">
+            <option value="">Sin promoción</option>
+            <option value="PROMO10" selected>PROMO10 - 10%</option>
+            <option value="PROMO20">PROMO20 - 20%</option>
+            <option value="CAMPANIA">CAMPANIA - 15%</option>
+          </select>
+        </label>
+
+        <button class="btn" type="submit">Registrar pedido</button>
+      </form>
+
+      <div id="orderResult" class="result empty">
+        Todavía no se registró ningún pedido.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="card-header">
+        <h2>Panel de control</h2>
+        <span class="badge">Evidencias rápidas</span>
+      </div>
+
+      <div class="actions">
+        <button class="btn secondary" data-load="inventory">Ver inventario</button>
+        <button class="btn secondary" data-load="orders">Ver pedidos</button>
+        <button class="btn secondary" data-load="invoices">Ver facturas</button>
+        <button class="btn secondary" data-load="shipments">Ver transporte</button>
+        <button class="btn secondary" data-load="notifications">Ver notificaciones</button>
+      </div>
+
+      <pre id="dashboardOutput" class="output">Selecciona una opción para consultar datos del sistema.</pre>
+    </section>
+
+    <section class="card wide">
+      <div class="card-header">
+        <h2>Servicios</h2>
+        <span class="badge">Arquitectura distribuida</span>
+      </div>
+
+      <div id="servicesGrid" class="services-grid">
+        <div class="service pending">Pedidos <span>pendiente</span></div>
+        <div class="service pending">Inventario <span>pendiente</span></div>
+        <div class="service pending">Facturación <span>pendiente</span></div>
+        <div class="service pending">Transporte <span>pendiente</span></div>
+        <div class="service pending">Notificaciones <span>pendiente</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Frontend en Docker + proxy Nginx hacia los microservicios.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

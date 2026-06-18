@@ -1,0 +1,61 @@
+services:
+  frontend:
+    build: ./frontend
+    container_name: logifresh-frontend
+    ports:
+      - "8080:80"
+    depends_on:
+      - pedidos-service
+      - inventario-service
+      - facturacion-service
+      - transporte-service
+      - notificaciones-service
+
+  pedidos-service:
+    build: ./services/pedidos-service
+    container_name: pedidos-service
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      INVENTARIO_URL: http://inventario-service:3001
+      FACTURACION_URL: http://facturacion-service:3002
+      TRANSPORTE_URL: http://transporte-service:3003
+      NOTIFICACIONES_URL: http://notificaciones-service:3004
+    depends_on:
+      - inventario-service
+      - facturacion-service
+      - transporte-service
+      - notificaciones-service
+
+  inventario-service:
+    build: ./services/inventario-service
+    container_name: inventario-service
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+
+  facturacion-service:
+    build: ./services/facturacion-service
+    container_name: facturacion-service
+    ports:
+      - "3002:3002"
+    environment:
+      PORT: 3002
+
+  transporte-service:
+    build: ./services/transporte-service
+    container_name: transporte-service
+    ports:
+      - "3003:3003"
+    environment:
+      PORT: 3003
+
+  notificaciones-service:
+    build: ./services/notificaciones-service
+    container_name: notificaciones-service
+    ports:
+      - "3004:3004"
+    environment:
+      PORT: 3004

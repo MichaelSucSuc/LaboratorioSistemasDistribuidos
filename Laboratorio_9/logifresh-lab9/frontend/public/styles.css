@@ -1,0 +1,260 @@
+:root {
+  --bg: #f4f7f5;
+  --card: #ffffff;
+  --text: #1d2b24;
+  --muted: #64756d;
+  --primary: #1f7a4d;
+  --primary-dark: #145735;
+  --border: #dbe5df;
+  --danger: #b42318;
+  --ok: #17803d;
+  --warning: #a15c00;
+  --shadow: 0 18px 45px rgba(21, 87, 53, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Arial, sans-serif;
+  background: radial-gradient(circle at top left, #dff4e7, transparent 35%), var(--bg);
+  color: var(--text);
+}
+
+.hero {
+  margin: 24px auto 0;
+  max-width: 1180px;
+  padding: 32px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #165c39, #2d9c67);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  box-shadow: var(--shadow);
+}
+
+.tag {
+  margin: 0 0 8px;
+  opacity: 0.85;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.subtitle {
+  max-width: 760px;
+  margin-bottom: 0;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.layout {
+  max-width: 1180px;
+  margin: 24px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.wide {
+  grid-column: 1 / -1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+h2 {
+  margin: 0;
+}
+
+.badge {
+  border: 1px solid var(--border);
+  background: #eff8f2;
+  color: var(--primary-dark);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+}
+
+label {
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+input,
+select {
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  outline: none;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+}
+
+.btn {
+  border: none;
+  border-radius: 16px;
+  padding: 12px 16px;
+  background: var(--primary);
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  background: var(--primary-dark);
+}
+
+.btn.secondary {
+  background: white;
+  color: var(--primary-dark);
+  border: 1px solid var(--border);
+}
+
+.hero .btn.secondary {
+  background: rgba(255,255,255,0.16);
+  color: white;
+  border-color: rgba(255,255,255,0.4);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.result,
+.output {
+  margin-top: 18px;
+  padding: 16px;
+  background: #0d1d14;
+  color: #d7ffe6;
+  border-radius: 16px;
+  overflow: auto;
+  min-height: 120px;
+  white-space: pre-wrap;
+  font-family: Consolas, monospace;
+  font-size: 0.9rem;
+}
+
+.result.empty {
+  background: #f6faf7;
+  color: var(--muted);
+  font-family: inherit;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.service {
+  border-radius: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.service span {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.service.ok {
+  background: #effaf2;
+  border-color: #bfe7c9;
+}
+
+.service.ok span {
+  color: var(--ok);
+}
+
+.service.error {
+  background: #fff1f0;
+  border-color: #ffc5c0;
+}
+
+.service.error span {
+  color: var(--danger);
+}
+
+.service.pending {
+  background: #fff8eb;
+  border-color: #f5dfb9;
+}
+
+.service.pending span {
+  color: var(--warning);
+}
+
+footer {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .layout {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}

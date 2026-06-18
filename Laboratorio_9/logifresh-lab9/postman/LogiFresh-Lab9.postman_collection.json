@@ -1,0 +1,70 @@
+{
+  "info": {
+    "name": "LogiFresh Lab 9",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Pedidos",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3000/health"
+      }
+    },
+    {
+      "name": "Registrar Pedido con PROMO10",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": \"P001\",\n  \"quantity\": 2,\n  \"customerEmail\": \"cliente@demo.com\",\n  \"promoCode\": \"PROMO10\"\n}"
+        },
+        "url": "http://localhost:3000/orders"
+      }
+    },
+    {
+      "name": "Pedido con inventario insuficiente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"productId\": \"P002\",\n  \"quantity\": 9999,\n  \"customerEmail\": \"cliente@demo.com\",\n  \"promoCode\": \"PROMO10\"\n}"
+        },
+        "url": "http://localhost:3000/orders"
+      }
+    },
+    {
+      "name": "Ver inventario",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3001/inventory"
+      }
+    },
+    {
+      "name": "Ver facturas",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3002/invoices"
+      }
+    },
+    {
+      "name": "Ver notificaciones",
+      "request": {
+        "method": "GET",
+        "url": "http://localhost:3004/notifications"
+      }
+    }
+  ]
+}
