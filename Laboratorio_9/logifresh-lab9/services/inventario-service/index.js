@@ -8,9 +8,9 @@ app.use(morgan("dev"));
 const PORT = process.env.PORT || 3001;
 
 const inventory = {
-  P001: { productName: "Yogurt refrigerado", stock: 120 },
-  P002: { productName: "Queso fresco", stock: 80 },
-  P003: { productName: "Leche pasteurizada", stock: 200 }
+  P001: { productName: "Yogurt refrigerado", stock: 10000 },
+  P002: { productName: "Queso fresco", stock: 10000 },
+  P003: { productName: "Leche pasteurizada", stock: 10000 }
 };
 
 const reservations = new Map();
