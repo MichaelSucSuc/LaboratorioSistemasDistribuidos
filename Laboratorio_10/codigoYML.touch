@@ -1,0 +1,40 @@
+services:
+  nodo-lima:
+    image: mongo:latest
+    container_name: nodo-lima
+    command: mongod --replSet rs-fedex --bind_ip_all
+    ports:
+      - "40017:27017"
+    networks:
+      - red-fedex
+
+  nodo-bogota:
+    image: mongo:latest
+    container_name: nodo-bogota
+    command: mongod --replSet rs-fedex --bind_ip_all
+    ports:
+      - "40018:27017"
+    networks:
+      - red-fedex
+
+  nodo-santiago:
+    image: mongo:latest
+    container_name: nodo-santiago
+    command: mongod --replSet rs-fedex --bind_ip_all
+    ports:
+      - "40019:27017"
+    networks:
+      - red-fedex
+
+  nodo-cdmx:
+    image: mongo:latest
+    container_name: nodo-cdmx
+    command: mongod --replSet rs-fedex --bind_ip_all
+    ports:
+      - "40020:27017"
+    networks:
+      - red-fedex
+
+networks:
+  red-fedex:
+    driver: bridge
