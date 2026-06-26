@@ -4,9 +4,6 @@ import static io.grpc.MethodDescriptor.generateFullMethodName;
 
 /**
  */
-@javax.annotation.Generated(
-    value = "by gRPC proto compiler (version 1.63.0)",
-    comments = "Source: converter.proto")
 @io.grpc.stub.annotations.GrpcGenerated
 public final class ConverterGrpc {
 
@@ -58,6 +55,21 @@ public final class ConverterGrpc {
         }
       };
     return ConverterStub.newStub(factory, channel);
+  }
+
+  /**
+   * Creates a new blocking-style stub that supports all types of calls on the service
+   */
+  public static ConverterBlockingV2Stub newBlockingV2Stub(
+      io.grpc.Channel channel) {
+    io.grpc.stub.AbstractStub.StubFactory<ConverterBlockingV2Stub> factory =
+      new io.grpc.stub.AbstractStub.StubFactory<ConverterBlockingV2Stub>() {
+        @java.lang.Override
+        public ConverterBlockingV2Stub newStub(io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+          return new ConverterBlockingV2Stub(channel, callOptions);
+        }
+      };
+    return ConverterBlockingV2Stub.newStub(factory, channel);
   }
 
   /**
@@ -140,6 +152,30 @@ public final class ConverterGrpc {
 
   /**
    * A stub to allow clients to do synchronous rpc calls to service Converter.
+   */
+  public static final class ConverterBlockingV2Stub
+      extends io.grpc.stub.AbstractBlockingStub<ConverterBlockingV2Stub> {
+    private ConverterBlockingV2Stub(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      super(channel, callOptions);
+    }
+
+    @java.lang.Override
+    protected ConverterBlockingV2Stub build(
+        io.grpc.Channel channel, io.grpc.CallOptions callOptions) {
+      return new ConverterBlockingV2Stub(channel, callOptions);
+    }
+
+    /**
+     */
+    public ejercicios_propuestos.ejercicio02.converter.ConvertResponse convert(ejercicios_propuestos.ejercicio02.converter.ConvertRequest request) throws io.grpc.StatusException {
+      return io.grpc.stub.ClientCalls.blockingV2UnaryCall(
+          getChannel(), getConvertMethod(), getCallOptions(), request);
+    }
+  }
+
+  /**
+   * A stub to allow clients to do limited synchronous rpc calls to service Converter.
    */
   public static final class ConverterBlockingStub
       extends io.grpc.stub.AbstractBlockingStub<ConverterBlockingStub> {

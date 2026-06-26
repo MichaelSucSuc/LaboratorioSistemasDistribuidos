@@ -1,11 +1,10 @@
 com\calculadora\CalculatorProto$ResponseOrBuilder.class
 com\calculadora\CalculatorGrpc$CalculatorBaseDescriptorSupplier.class
+com\calculadora\CalculatorGrpc$4.class
 com\calculadora\CalculatorGrpc$CalculatorBlockingStub.class
-com\calculadora\CalculatorServer.class
 com\calculadora\CalculatorGrpc$AsyncService.class
 com\calculadora\CalculatorGrpc$CalculatorFutureStub.class
 com\calculadora\CalculatorProto$Response$1.class
-com\calculadora\CalculatorClient.class
 com\calculadora\CalculatorProto.class
 com\calculadora\CalculatorGrpc$CalculatorFileDescriptorSupplier.class
 com\calculadora\CalculatorGrpc.class
@@ -21,5 +20,5 @@ com\calculadora\CalculatorGrpc$1.class
 com\calculadora\CalculatorProto$Request$1.class
 com\calculadora\CalculatorGrpc$MethodHandlers.class
 com\calculadora\CalculatorProto$Response.class
-com\calculadora\CalculatorServer$CalculatorServiceImpl.class
 com\calculadora\CalculatorGrpc$2.class
+com\calculadora\CalculatorGrpc$CalculatorBlockingV2Stub.class
