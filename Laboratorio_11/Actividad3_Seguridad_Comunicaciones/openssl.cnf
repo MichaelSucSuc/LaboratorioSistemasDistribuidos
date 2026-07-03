@@ -1,0 +1,25 @@
+[ req ]
+default_bits = 2048
+prompt = no
+default_md = sha256
+distinguished_name = dn
+x509_extensions = v3_req
+
+[ dn ]
+C = PE
+ST = Arequipa
+L = Arequipa
+O = LogiMarket Peru SAC
+OU = TI
+CN = localhost
+emailAddress = admin@logimarket.pe
+
+[ v3_req ]
+subjectAltName = @alt_names
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, keyEncipherment
+extendedKeyUsage = serverAuth
+
+[ alt_names ]
+DNS.1 = localhost
+IP.1 = 127.0.0.1
